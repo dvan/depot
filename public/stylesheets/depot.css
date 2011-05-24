@@ -16,6 +16,25 @@
         border-bottom: 3px dotted #77d;
 }
 
+
+/* Styles for the cart in the main page */
+
+#store .cart_title {
+		font: 120% bold;
+}
+
+
+#store .item_price, #store .total_line {
+		text-align: right;
+}
+
+
+#store .total_line .total_cell {
+		font-weight: bold;
+		border-top: 1px solid #595;
+}
+
+
 /* Styles for products/index */
 
 #product_list table {
