@@ -11,7 +11,7 @@ class CombineItemsInCart < ActiveRecord::Migration
   				cart.line_items.where(:product_id=>product_id).delete_all
   				
   				# replace with a single item
-  				cart.line_items.create(:product_id=>product_id, :quantity=quantity)
+  				cart.line_items.create(:product_id=>product_id, :quantity=>quantity)
   			end
   		end
   	end
@@ -22,11 +22,12 @@ class CombineItemsInCart < ActiveRecord::Migration
 	LineItem.where("quantity>1").each do |lineitem|
 		#add individual items
 		lineitem.qunatity.times do
-			LineItem.create : cart_id=>lineitem.cart_id,
+			LineItem.create :cart_id=>lineitem.cart_id,
 				:product_id=>lineitem.product_id, :qunatity=>1
 		end
 		
 		#remove original item
 		lineitem.destroy
+	end
   end
 end
